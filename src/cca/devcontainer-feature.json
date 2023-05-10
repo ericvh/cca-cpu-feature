@@ -1,0 +1,10 @@
+{
+    "name": "CCA CPU",
+    "id": "cca",
+    "version": "0.0.1",
+    "description": "Features to enable test on CCA fixed virtual platform",
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils",
+		"ghcr.io/devcontainers/features/docker-in-docker",
+    ]
+}
