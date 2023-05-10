@@ -50,13 +50,6 @@ export DEBIAN_FRONTEND=noninteractive
 # check_packages ca-certificates libatomic1 screen telnet kmod wget iptables
 check_packages ca-certificates libatomic1 kmod wget iptables
 
+cp launch.bash /usr/local/bin/cca
 
-# Install FVP
-#mkdir -p /opt/fvp
-#cd /opt/fvp
-#if [ `uname -m` = "aarch64" ] ; then wget https://developer.arm.com/-/media/Files/downloads/ecosystem-models/FVP_Base_RevC-2xAEMvA_11.21_15_Linux64_armv8l.tgz ; \
-#                                    else wget https://developer.arm.com/-/media/Files/downloads/ecosystem-models/FVP_Base_RevC-2xAEMvA_11.21_15_Linux64.tgz ; fi \
-#    && tar xf F*.tgz && rm *.tgz
-#
-
-docker build -t cca-cpu/fvp .
+chmod ugo+x /usr/local/bin/cca
