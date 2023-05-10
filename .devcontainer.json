@@ -20,6 +20,9 @@
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:2": {}
     },
+	"mounts": [
+		"source=${localEnv:HOME},target=/home/user,type=bind,consistency=default"
+    ],
     "remoteUser": "node",
     "updateContentCommand": "npm install -g @devcontainers/cli"
 }
