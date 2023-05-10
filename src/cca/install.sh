@@ -47,9 +47,27 @@ check_packages() {
 # Ensure apt is in non-interactive to avoid prompts
 export DEBIAN_FRONTEND=noninteractive
 
-# check_packages ca-certificates libatomic1 screen telnet kmod wget iptables
-check_packages ca-certificates libatomic1 kmod wget iptables
+check_packages ca-certificates libatomic1 kmod wget iptables screen telnet
 
-cp launch.bash /usr/local/bin/cca
+mkdir -p /opt/fvp
+cd /opt/fvp
+if [ `uname -m` = "aarch64" ] ; then wget https://developer.arm.com/-/media/Files/downloads/ecosystem-models/FVP_Base_RevC-2xAEMvA_11.21_15_Linux64_armv8l.tgz ; \
+                                    else wget https://developer.arm.com/-/media/Files/downloads/ecosystem-models/FVP_Base_RevC-2xAEMvA_11.21_15_Linux64.tgz ; fi \
+    && tar xf F*.tgz && rm *.tgz
 
-chmod ugo+x /usr/local/bin/cca
+# grab artifacts
+cd /usr/local/share/cca
+mkdir -p /usr/local/share/cca
+
+wget -O Image https://github.com/ericvh/cca-cpu/releases/latest/download/Image
+wget -O Image.guest https://github.com/ericvh/cca-cpu/releases/latest/download/Image.guest
+wget -O initramfs.cpio https://github.com/ericvh/cca-cpu/releases/latest/download/initramfs.cpio
+wget -O rmm.img https://github.com/ericvh/cca-cpu/releases/latest/download/rmm.img
+wget -O bl1-linux.bin https://github.com/ericvh/cca-cpu/releases/latest/download/bl1-linux.bin
+wget -O fip-linux.bin https://github.com/ericvh/cca-cpu/releases/latest/download/fip-linux.bin
+
+cd /usr/local/bin
+wget -O lkvm https://github.com/ericvh/cca-cpu/releases/latest/download/lkvm
+ln -s /opt/fvp/Base_RevC_AEMvA_pkg/models/Linux64*/FVP_Base_RevC-2xAEMvA fvp
+
+cd /
