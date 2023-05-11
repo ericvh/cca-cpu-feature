@@ -56,8 +56,8 @@ if [ `uname -m` = "aarch64" ] ; then wget https://developer.arm.com/-/media/File
     && tar xf F*.tgz && rm *.tgz
 
 # grab artifacts
-cd /usr/local/share/cca
 mkdir -p /usr/local/share/cca
+cd /usr/local/share/cca
 
 wget -O Image https://github.com/ericvh/cca-cpu/releases/latest/download/Image
 wget -O Image.guest https://github.com/ericvh/cca-cpu/releases/latest/download/Image.guest
