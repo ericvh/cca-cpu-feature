@@ -4,6 +4,6 @@
     "version": "0.0.2",
     "description": "Features to enable test on CCA fixed virtual platform",
     "installsAfter": [
-        "ghcr.io/devcontainers/features/common-utils",
+        "ghcr.io/devcontainers/features/common-utils"
     ]
 }
