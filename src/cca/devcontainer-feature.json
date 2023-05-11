@@ -1,7 +1,7 @@
 {
     "name": "CCA CPU",
     "id": "cca",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Features to enable test on CCA fixed virtual platform",
     "installsAfter": [
         "ghcr.io/devcontainers/features/common-utils"
