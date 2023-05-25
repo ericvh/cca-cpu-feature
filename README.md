@@ -17,9 +17,11 @@ and virtio 9p backmounts.  For more information on any of these environments see
 
 Add the following feature line to your existing devcontainer's .devcontainer.json:
 
+```
 "features": {
   "ghcr.io/ericvh/cca-cpu-feature/cca:0.1.0": {}
 }
+```
 
 and then use vs-code Dev Container: Rebuild Container
 
@@ -117,3 +119,7 @@ There are other screens inside the FVP container which have the RMM console, deb
 - https://github.com/u-root/u-root
 - https://github.com/u-root/cpu
 - https://www.arm.com/architecture/security-features/arm-confidential-compute-architecture
+
+## Thanks
+
+Thanks to Ron Minnich and the u-root teams for helping get all of this plumbed and working and thanks to Mathias Brossard whose original CCA asset build scripts are what I based my CI build environment on.
