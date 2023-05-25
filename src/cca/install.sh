@@ -47,16 +47,23 @@ check_packages() {
 # Ensure apt is in non-interactive to avoid prompts
 export DEBIAN_FRONTEND=noninteractive
 
+# create directories
+mkdir -p /usr/local/share/cca
+mkdir -p /opt/fvp
+
 check_packages ca-certificates libatomic1 kmod wget iptables screen telnet
 
-mkdir -p /opt/fvp
+cp lkvm-cca /usr/local/share/cca
+chmod ugo+x /usr/local/share/cca/lkvm-cca
+cp fvp-cca /usr/local/share/cca
+chmod ugo+x /usr/local/share/cca/fvp-cca
+
 cd /opt/fvp
 if [ `uname -m` = "aarch64" ] ; then wget https://developer.arm.com/-/media/Files/downloads/ecosystem-models/FVP_Base_RevC-2xAEMvA_11.21_15_Linux64_armv8l.tgz ; \
                                     else wget https://developer.arm.com/-/media/Files/downloads/ecosystem-models/FVP_Base_RevC-2xAEMvA_11.21_15_Linux64.tgz ; fi \
     && tar xf F*.tgz && rm *.tgz
 
 # grab artifacts
-mkdir -p /usr/local/share/cca
 cd /usr/local/share/cca
 
 wget -O Image https://github.com/ericvh/cca-cpu/releases/latest/download/Image
@@ -68,6 +75,8 @@ wget -O fip-linux.bin https://github.com/ericvh/cca-cpu/releases/latest/download
 
 cd /usr/local/bin
 wget -O lkvm https://github.com/ericvh/cca-cpu/releases/latest/download/lkvm
+chmod ugo+x /usr/local/bin/lkvm
+
 ln -s /opt/fvp/Base_RevC_AEMvA_pkg/models/Linux64*/FVP_Base_RevC-2xAEMvA fvp
 
 cd /

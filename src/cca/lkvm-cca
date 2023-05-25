@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+lkvm run --realm --irqchip=gicv3-its --console=virtio -c 1 -m 256 -k /usr/local/share/cca/Image.guest -i /usr/local/share/cca/initramfs.cpio --9p /mnt,FM --rng -p "ip=on uroot.uinitargs=/bin/bash"
