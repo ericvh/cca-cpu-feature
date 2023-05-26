@@ -86,5 +86,6 @@ wget -O lkvm https://github.com/ericvh/cca-cpu/releases/latest/download/lkvm
 chmod ugo+x /usr/local/bin/lkvm
 
 ln -sf /opt/fvp/Base_RevC_AEMvA_pkg/models/Linux64*/FVP_Base_RevC-2xAEMvA fvp
+ln -sf /usr/local/share/cca/fvp-cca fvp-cca
 
-cd /
+cd /workspaces
